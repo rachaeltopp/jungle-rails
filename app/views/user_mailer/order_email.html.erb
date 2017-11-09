@@ -1,0 +1,32 @@
+<section>
+  <h1>Dear customer, %></h1>
+  <p>
+    You have successfully placed your order,
+    the details are as follows: 
+  </p>
+  <br>
+  <h1>Order #<%= @order.id %></h1>
+  
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th colspan="2">Product</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @line_items.each do |each_line_item| %>
+        <%= render 'line_item', each_line_item: each_line_item %>
+      <% end %>
+    </tbody>
+    </table>
+
+    <h1>Total: $<%= @order.total %></h1>
+    
+    <div class="order-summary jumbotron">
+      <h4>Thank you for your order!</h4>
+    </div>
+
+</section>
