@@ -2,6 +2,25 @@
 
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
+
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th colspan="2">Product</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @line_items.each do |each_line_item| %>
+        <%= render 'line_item', each_line_item: each_line_item %>
+      <% end %>
+    </tbody>
+    </table>
+
+    <h1>Total: $<%= @order.total %></h1>
+
   </header>
 
   <div class="order-summary jumbotron">
